@@ -1,0 +1,70 @@
+<div class="registerMainDiv">
+    
+    <div class="registrationPic">
+        <h1>Hello this is registration pic</h1>
+    </div>
+
+
+    <div class="registrationForm">
+        <h4>Dont have account yet? register here!</h4>
+
+        <form action="" class="registrationForm__mainForm" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+                <div class="formset">
+                    <label for="">Firstname</label>
+                    <input type="text" name="Firstname" id="" placeholder="Firstname" class="fName" formControlName="firstName">
+                </div>
+
+                <div class="formset">
+                    <label for="">Lastname</label>
+                    <input type="text" name="Firstname" id="wtf" placeholder="Lastname" class="lName" formControlName="lastName">
+                </div>
+
+
+            <div class="gender">
+                <label for="">
+                    Female
+                    <input type="radio" name="Gender" id="" value="Female" formControlName="Gender">
+                </label>
+                <label for="">
+                    Male
+                    <input type="radio" name="Gender" id="" value="Male" formControlName="Gender">
+                </label>
+                <!-- <label for="">
+                    Custom
+                    <input type="radio" name="test" id="">
+                </label> -->
+            </div>
+
+            <div class="datepicker">
+                <label for="">Please enter your birthdate
+                    
+                </label>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName="birthDate"/>
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+            </div>
+            
+            <div class="formset1">
+                <label for="Username">Username</label>
+                <input type="text" name="" id="" placeholder="Username" formControlName="userName">
+            </div>
+            <div class="formset1">
+                <label for="Username">Password</label>
+                <input type="password" name="" id="" placeholder="Password" formControlName="passWord">
+            </div>
+            
+
+            <div class="button">
+                <button class="registerBtn">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+

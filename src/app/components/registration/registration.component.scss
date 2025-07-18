@@ -1,0 +1,60 @@
+// firstname
+// lastname
+//gender
+// birthday
+// username
+// password
+// // confirm password
+  
+.registerMainDiv {
+    display: grid;
+    grid-template-columns: repeat(2,1fr); 
+    margin-inline: 0.75rem;
+
+    .registrationPic {
+        background-color: yellow;
+    }
+
+    .registrationForm {
+        border: 1px solid black;
+        text-align: center;
+        width: 100%;
+        h4 {
+            text-align: center;
+        }
+   
+
+        &__mainForm {
+          label {
+            display: block;
+          } 
+
+        .formset {
+            display: inline-block;
+            width: 47%;
+            margin-inline: 10px;
+            text-align: left;
+          }
+
+          .formset1 {
+            text-align: start;
+            width: 97%;
+            margin-inline: 10px;
+            display: block;
+          }
+
+          input[type="text"],input[type="password"] {
+            width: 100%;
+            padding-block: 0.625rem;
+            border-radius: 0.625rem;;
+            padding-inline: 0.625rem;
+            margin-right: 0.625rem;
+            border: 0.063rem solid grey;
+          }
+          
+
+          
+        }
+    }
+
+}
