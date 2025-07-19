@@ -33,6 +33,10 @@ export class RegistrationComponent {
     return this.profileForm.get('firstName') 
   }
 
+  get lastName () {
+    return this.profileForm.get('lastName') 
+  }
+
   private readonly _currentYear = new Date().getFullYear();
 
   readonly minDate = new Date(this._currentYear - 30, 0, 1);

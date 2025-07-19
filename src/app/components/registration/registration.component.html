@@ -29,16 +29,17 @@
                     <input type="text" name="Firstname" id="lastName" placeholder="Lastname" class="lName" formControlName="lastName">
                 </div>
 
-<!-- 
-            @if (profileForm.controls['lastName'].invalid && (profileForm.controls['lastName'].touched || profileForm.controls['lastName'].dirty)) {
-             <div class="alert">
-              @if (profileForm.controls['lastName'].hasError('required')) {
-                <div>
-                  Lastname is required.
-                </div>
+            @if (lastName?.invalid && (lastName?.dirty || lastName?.touched)) {
+                <div class="alert">
+                @if (lastName?.hasError('required')) {
+                    <span>
+                         Last name is required.
+                    </span>
               }
-              </div>
-        } -->
+                </div>
+                }
+
+                
 
             <div class="gender">
                 <label for="">
