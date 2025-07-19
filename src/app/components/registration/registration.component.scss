@@ -36,6 +36,7 @@
             text-align: left;
           }
 
+
           .formset1 {
             text-align: start;
             width: 97%;
@@ -52,8 +53,22 @@
             border: 0.063rem solid grey;
           }
           
-
+         input[type="text"] {
           
+          }
+
+          #test {
+            border: 1px solid red;
+          }
+
+          #black {
+            border: 0.063rem solid grey;
+          }
+
+
+          .alert {
+           
+          }
         }
     }
 

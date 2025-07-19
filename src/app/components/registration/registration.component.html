@@ -11,14 +11,34 @@
         <form action="" class="registrationForm__mainForm" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
                 <div class="formset">
                     <label for="">Firstname</label>
-                    <input type="text" name="Firstname" id="" placeholder="Firstname" class="fName" formControlName="firstName">
+                    <input type="text" name="firstName" id="{{firstName?.hasError('required') ? 'test': ''}}" placeholder="Firstname"  formControlName="firstName" required>
                 </div>
+                
+                @if (firstName?.invalid && (firstName?.dirty || firstName?.touched)) {
+                <div class="alert">
+                @if (firstName?.hasError('required')) {
+                    <span>
+                         Name is required.
+                    </span>
+              }
+                </div>
+                }
 
                 <div class="formset">
                     <label for="">Lastname</label>
-                    <input type="text" name="Firstname" id="wtf" placeholder="Lastname" class="lName" formControlName="lastName">
+                    <input type="text" name="Firstname" id="lastName" placeholder="Lastname" class="lName" formControlName="lastName">
                 </div>
 
+<!-- 
+            @if (profileForm.controls['lastName'].invalid && (profileForm.controls['lastName'].touched || profileForm.controls['lastName'].dirty)) {
+             <div class="alert">
+              @if (profileForm.controls['lastName'].hasError('required')) {
+                <div>
+                  Lastname is required.
+                </div>
+              }
+              </div>
+        } -->
 
             <div class="gender">
                 <label for="">
