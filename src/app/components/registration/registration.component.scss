@@ -57,8 +57,10 @@
           
           }
 
-          #test {
-            border: 1px solid red;
+          #errorFont {
+            p {
+              color: red;
+            }
           }
 
           #black {
@@ -66,9 +68,7 @@
           }
 
 
-          .alert {
-           
-          }
+    
         }
     }
 

@@ -5,6 +5,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators,FormsModule} from '@angular/forms'
+import { ageValidator, profileNameValidation } from '../../validators/registeration-validator';
 
 
 @Component({
@@ -15,27 +16,9 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators,FormsModule} fro
   styleUrl: './registration.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RegistrationComponent {
-  profileForm = new FormGroup ({
-    firstName: new FormControl('',[
-      Validators.required
-    ]),
-    lastName: new FormControl('',[
-      Validators.required
-    ]),
-    Gender: new FormControl(''),
-    birthDate: new FormControl(''),
-    userName: new FormControl(''),
-    passWord: new FormControl(''),
-  })
-  
-  get firstName () {
-    return this.profileForm.get('firstName') 
-  }
 
-  get lastName () {
-    return this.profileForm.get('lastName') 
-  }
+
+export class RegistrationComponent {
 
   private readonly _currentYear = new Date().getFullYear();
 
@@ -43,8 +26,9 @@ export class RegistrationComponent {
   readonly maxDate = new Date(this._currentYear + 0, 11, 31);
 
 
-    onSubmit() {
-      
+
+  onSubmit() {
+
       const newDate: Date = new Date();
       const currentYear: number = newDate.getFullYear();
 
@@ -60,12 +44,43 @@ export class RegistrationComponent {
       console.log(this.profileForm.value)
       //user check minority
       if(currentYear - getYear < 18) {
-        console.log("Minor")
+        return this.minorCheck = "Minor"
       } else {
-        console.log("Adult")
+        return this.minorCheck = "Adult"
       }
     }
 
+
+
+  minorCheck: string = ""
+
+  profileForm = new FormGroup ({
+    firstName: new FormControl('',[
+      Validators.required,
+      profileNameValidation("rodulfo")
+    ]),
+    lastName: new FormControl('',[
+      Validators.required
+    ]),
+    Gender: new FormControl(''),
+    birthDate: new FormControl('',[
+      ageValidator(this.minorCheck),
+    ]),
+    userName: new FormControl(''),
+    passWord: new FormControl(''),
+  })
+  
+  get firstName () {
+    return this.profileForm.get('firstName') 
+  }
+
+  get lastName () {
+    return this.profileForm.get('lastName') 
+  }
+
+get birthDate () {
+  return this.profileForm.get('birthDate')
+}
 
 
 }

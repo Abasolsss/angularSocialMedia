@@ -5,23 +5,35 @@
     </div>
 
 
+    <!-- id="{{firstName?.hasError('required') ? 'test': ''}}"  -->
+
     <div class="registrationForm">
         <h4>Dont have account yet? register here!</h4>
 
         <form action="" class="registrationForm__mainForm" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
                 <div class="formset">
                     <label for="">Firstname</label>
-                    <input type="text" name="firstName" id="{{firstName?.hasError('required') ? 'test': ''}}" placeholder="Firstname"  formControlName="firstName" required>
+                    <input type="text" name="firstName" placeholder="Firstname"  formControlName="firstName" required>
                 </div>
                 
                 @if (firstName?.invalid && (firstName?.dirty || firstName?.touched)) {
                 <div class="alert">
                 @if (firstName?.hasError('required')) {
-                    <span>
-                         Name is required.
+                    <span id="errorFont">
+                        <p>Name is required.</p>
+                    </span>
+              }
+
+
+
+                 @if(firstName?.hasError('invalidName')) {
+                 <span id="errorFont">
+                        <p>Dafak is bob bro?.</p>
                     </span>
               }
                 </div>
+
+                
                 }
 
                 <div class="formset">
@@ -32,8 +44,8 @@
             @if (lastName?.invalid && (lastName?.dirty || lastName?.touched)) {
                 <div class="alert">
                 @if (lastName?.hasError('required')) {
-                    <span>
-                         Last name is required.
+                    <span id="errorFont">
+                        <p>Last name is required.</p>
                     </span>
               }
                 </div>
@@ -67,6 +79,14 @@
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                   </mat-form-field>
+
+                   @if(birthDate?.hasError('minor')) {
+                    <span id="errorFont">
+                        <p>Minor paka choi</p>
+                    </span>
+                  }
+
+                 
             </div>
             
             <div class="formset1">
