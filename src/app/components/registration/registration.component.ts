@@ -25,7 +25,7 @@ export class RegistrationComponent {
   readonly minDate = new Date(this._currentYear - 30, 0, 1);
   readonly maxDate = new Date(this._currentYear + 0, 11, 31);
 
-
+  // minorCheck: string = ""
 
   onSubmit() {
 
@@ -39,20 +39,17 @@ export class RegistrationComponent {
       const getMonth: number = testDate.getMonth() +  1
       const getDate: number = testDate.getDate()
       
-
-
-      console.log(this.profileForm.value)
+      console.log(testDate.getFullYear())
       //user check minority
       if(currentYear - getYear < 18) {
-        return this.minorCheck = "Minor"
+      
       } else {
-        return this.minorCheck = "Adult"
+       
       }
     }
 
 
 
-  minorCheck: string = ""
 
   profileForm = new FormGroup ({
     firstName: new FormControl('',[
@@ -63,9 +60,7 @@ export class RegistrationComponent {
       Validators.required
     ]),
     Gender: new FormControl(''),
-    birthDate: new FormControl('',[
-      ageValidator(this.minorCheck),
-    ]),
+    birthDate: new FormControl('',ageValidator()),
     userName: new FormControl(''),
     passWord: new FormControl(''),
   })

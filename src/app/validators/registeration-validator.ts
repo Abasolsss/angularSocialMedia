@@ -12,12 +12,20 @@ export function profileNameValidation (compareName: string): ValidatorFn {
 }
 
 
-export function ageValidator(ageMinor: string): ValidatorFn {
+export function ageValidator(): ValidatorFn {
     return(control: AbstractControl): ValidationErrors | null => {
-        
-        const testVal = control.value
+    
+        const monthValue = control.value
 
-        return testVal === ageMinor ? null : {minor: true}
+        const convertString = JSON.stringify(monthValue) as string
+
+        const cutDateString = convertString.substring(1,10) as string
+
+        const newDate = new Date(cutDateString)
+
+        console.log(newDate.getFullYear())
+
+       return monthValue === "minor" ? null : {minor: true}
 
     }
 }
