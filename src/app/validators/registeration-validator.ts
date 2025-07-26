@@ -21,11 +21,16 @@ export function ageValidator(): ValidatorFn {
 
         const cutDateString = convertString.substring(1,10) as string
 
-        const newDate = new Date(cutDateString)
+        const userDate: Date = new Date(cutDateString)
 
-        console.log(newDate.getFullYear())
+        const userYear = userDate.getFullYear() as number
 
-       return monthValue === "minor" ? null : {minor: true}
+        const currentDate = new Date()
+
+        const currentYear = currentDate.getFullYear() as number
+
+        
+        return currentYear - userYear < 18 ? {minor: true} : null
 
     }
 }

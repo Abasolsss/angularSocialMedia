@@ -44,7 +44,7 @@ export class RegistrationComponent {
       if(currentYear - getYear < 18) {
       
       } else {
-       
+      
       }
     }
 
@@ -60,7 +60,10 @@ export class RegistrationComponent {
       Validators.required
     ]),
     Gender: new FormControl(''),
-    birthDate: new FormControl('',ageValidator()),
+    birthDate: new FormControl('',[
+      ageValidator(),
+      Validators.required
+    ]),
     userName: new FormControl(''),
     passWord: new FormControl(''),
   })

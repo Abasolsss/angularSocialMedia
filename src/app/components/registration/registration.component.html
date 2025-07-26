@@ -82,17 +82,24 @@
 
 
 
-                <!-- @if (birthDate?.invalid && (birthDate?.dirty || birthDate?.touched)) {
+                @if (birthDate?.invalid && (birthDate?.dirty || birthDate?.touched)) {
                 <div class="alert">
-                  
-                </div>
-                } -->
-
-                 <!-- @if(birthDate?.hasError('minor')) {
+                    @if(birthDate?.hasError('minor')) {
                     <span id="errorFont">
                         <p>Minor paka choi</p>
                     </span>
-                  } -->
+                  }
+
+
+                  @if(birthDate?.hasError('required')) {
+                    <span id="errorFont">
+                        <p>This section is required</p>
+                    </span>
+                  }
+                </div>
+                }
+
+               
 
 
                  
